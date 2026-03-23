@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: invoiceflow-green
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Subhitcha04/invoiceflow-config.git
+    targetRevision: main
+    path: k8s/green
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: invoiceflow
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
