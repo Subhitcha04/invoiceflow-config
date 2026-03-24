@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: invoiceflow
-    slot: green        # ← change this to "green" when switching
+    slot: blue        # ← change this to "green" when switching
   ports:
     - protocol: TCP
       port: 80
