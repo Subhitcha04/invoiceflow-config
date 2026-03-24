@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: invoiceflow-green
@@ -20,11 +20,7 @@ spec:
     spec:
       containers:
         - name: api
-<<<<<<< HEAD
-          image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:95ffe01
-=======
           image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:1b317e0
->>>>>>> 9c822c148ef61ab7bdeb36178cd7fc06152ecb61
           ports:
             - containerPort: 8000
           env:
