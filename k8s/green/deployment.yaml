@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:24a9910
+          image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:10dea42
           ports:
             - containerPort: 8000
           env:
