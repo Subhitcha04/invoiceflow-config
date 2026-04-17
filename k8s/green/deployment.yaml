@@ -18,6 +18,7 @@ spec:
         app: invoiceflow
         slot: green
     spec:
+      serviceAccountName: default
       containers:
         - name: api
           image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:latest
@@ -25,6 +26,8 @@ spec:
             - containerPort: 8000
           env:
             - name: GCP_PROJECT_ID
+              value: "cat-2-491109"
+            - name: GOOGLE_CLOUD_PROJECT
               value: "cat-2-491109"
           resources:
             requests:
