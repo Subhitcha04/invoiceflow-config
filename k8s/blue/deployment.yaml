@@ -18,10 +18,9 @@ spec:
         app: invoiceflow
         slot: blue
     spec:
-      serviceAccountName: default
       containers:
         - name: api
-          image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:1b317e0
+          image: asia-south1-docker.pkg.dev/cat-2-491109/invoiceflow/api:latest
           ports:
             - containerPort: 8000
           env:
@@ -29,6 +28,12 @@ spec:
               value: "cat-2-491109"
             - name: GOOGLE_CLOUD_PROJECT
               value: "cat-2-491109"
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/secrets/credentials.json"
+          volumeMounts:
+            - name: gcp-creds
+              mountPath: /secrets
+              readOnly: true
           resources:
             requests:
               cpu: "250m"
@@ -48,3 +53,7 @@ spec:
               port: 8000
             initialDelaySeconds: 15
             periodSeconds: 10
+      volumes:
+        - name: gcp-creds
+          secret:
+            secretName: gcp-credentials
