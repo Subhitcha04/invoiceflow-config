@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: invoiceflow-hpa
-  namespace: default
+  namespace: invoiceflow
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
